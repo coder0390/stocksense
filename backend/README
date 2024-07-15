@@ -1,0 +1,49 @@
+1.Environment Configuration
+Most Python packages can be installed directly using the pip method.
+Here are some instructions for installing special packages.
+For the PyEMD package, please use the command
+pip install EMD-signal
+to install.
+For the skfuzzy package, please use the command
+pip install scikit-fuzzy
+to install.
+The Tensorflow version is 2.13.0, and the corresponding Keras version is 2.13.1.
+After installing the nltk package, you need to additionally execute
+nltk.download('vader_lexicon')
+The talib library is a bit special, you can consider using the command
+conda install -c conda-forge ta-lib
+or download the whl file and install it using pip from
+https://github.com/cgohlke/talib-build/releases.
+
+
+2.Project Execution
+To start the backend project, open a terminal in the backend directory with the configured Python environment, and enter the command python manage.py runserver. This will start the backend project on the 127.0.0.1:8000 port.
+
+You can add the --port parameter to change the port, but it is not recommended, as you will need to synchronize the update in the frontend interface as well.
+
+
+3.Project Backend Code Description
+This project contains the backend code for the entire project, including the database for stocks and news, as well as the related read and write operations. The important files are described as follows:
+
+backend directory
+The urls.py file in the backend directory defines the communication interfaces.
+
+news directory
+The read_csv.py file in the api directory is the code for importing news data from CSV files into the database.
+The word_cloud.py file in the api directory contains the function for generating word clouds.
+The view.py file stores the functions for handling HTTP requests related to news operations.
+
+pic directory
+This directory stores the generated word cloud images.
+
+prediction directory
+The api directory contains the implementation functions for different models.
+The generate_prediction.py file is the function for calling different models to generate predictions.
+The view.py file stores the functions for handling HTTP requests related to prediction operations.
+
+strategy directory
+The api directory contains the functions for generating strategy analysis and stock selection procedures, such as strategy.py and weights.py.
+The view.py file stores the functions for handling HTTP requests related to stock operations.
+
+stocks421.db
+This is the project database.
